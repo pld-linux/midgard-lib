@@ -64,8 +64,6 @@ install repligard/repligard.conf $RPM_BUILD_ROOT/%{_sysconfdir}
 install repligard/repligard $RPM_BUILD_ROOT/%{_bindir}
 install repligard/repligard.xml $RPM_BUILD_ROOT%{_datadir}/midgard
 
-gzip -9nf AUTHORS COPYING ChangeLog INSTALL INSTALL.ru NEWS README README.ru
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -78,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/midgard/repligard.xml
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %config(noreplace) %{_sysconfdir}/repligard.conf
-%doc *.gz
+%doc AUTHORS COPYING ChangeLog INSTALL INSTALL.ru NEWS README README.ru
 
 %files devel
 %defattr(644,root,root,755)
