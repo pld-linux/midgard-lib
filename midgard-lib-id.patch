@@ -1,12 +1,19 @@
-diff -urN midgard-lib-1.4.1_5/configure midgard-lib-1.4.1_5.grzegorz/configure
---- midgard-lib-1.4.1_5/configure	Wed Jun 20 12:36:01 2001
-+++ midgard-lib-1.4.1_5.grzegorz/configure	Sat Apr 14 16:43:31 2001
-@@ -2690,7 +2690,7 @@
- echo "$ac_t""$REPLIGARD_OWNER" 1>&6
+--- midgard-lib-1.4.4/configure.in.orig	Wed Dec 18 23:11:34 2002
++++ midgard-lib-1.4.4/configure.in	Thu Aug 21 14:59:51 2003
+@@ -363,15 +363,7 @@
+ ])
+ AC_MSG_RESULT($REPLIGARD_OWNER)
  
- REPLIGARD_OWNER_RESULT=yes
--/usr/bin/id $REPLIGARD_OWNER >/dev/null 2>/dev/null || REPLIGARD_OWNER_RESULT=no
-+/bin/id $REPLIGARD_OWNER >/dev/null 2>/dev/null || REPLIGARD_OWNER_RESULT=no
- if test "$REPLIGARD_OWNER_RESULT" = "no" ; then
-     { echo "configure: error: Could not find user '$REPLIGARD_OWNER' on system to make it owner of Repligard
- binary. Make sure that you've used --with-repligard-owner option with 
+-dnl Now check whether specified user exists
+-if perl -e "exit (defined getpwnam($REPLIGARD_OWNER) ? 1 : 0);" ; then
+-    AC_MSG_ERROR([Could not find user '$REPLIGARD_OWNER' on system to make it owner
+-of Repligard binary. Make sure that you've used --with-repligard-owner
+-option with correct value or user 'mysql' exists on your system. 
+-We use 'mysql' user by default.])
+-fi
+-
+-AC_SEARCH_LIBS(mysql_connect, mysqlclient, , AC_MSG_ERROR(You need libmysqlclient))
++AC_SEARCH_LIBS(mysql_real_connect, mysqlclient, , AC_MSG_ERROR(You need libmysqlclient))
+ if test "x$XMLTOK_LIB" != "x"; then
+    AC_SEARCH_LIBS(XmlUtf8Encode, $XMLTOK_LIB, , AC_MSG_ERROR(You need $XMLTOK_LIB))
+ fi
