@@ -57,12 +57,12 @@ Pliki naglowkowe i inne do midgard-lib.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__install} -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_includedir}/midgard,%{_libdir},%{_datadir}/midgard,%{_bindir}}
-%{__install} midgard/*.h $RPM_BUILD_ROOT/%{_includedir}/midgard
-%{__install} src/.libs/* $RPM_BUILD_ROOT/%{_libdir}
-%{__install} repligard/repligard.conf $RPM_BUILD_ROOT/%{_sysconfdir}
-%{__install} repligard/repligard $RPM_BUILD_ROOT/%{_bindir}
-%{__install} repligard/repligard.xml $RPM_BUILD_ROOT%{_datadir}/midgard
+install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_includedir}/midgard,%{_libdir},%{_datadir}/midgard,%{_bindir}}
+install midgard/*.h $RPM_BUILD_ROOT/%{_includedir}/midgard
+install src/.libs/* $RPM_BUILD_ROOT/%{_libdir}
+install repligard/repligard.conf $RPM_BUILD_ROOT/%{_sysconfdir}
+install repligard/repligard $RPM_BUILD_ROOT/%{_bindir}
+install repligard/repligard.xml $RPM_BUILD_ROOT%{_datadir}/midgard
 
 gzip -9nf AUTHORS COPYING ChangeLog INSTALL INSTALL.ru NEWS README README.ru
 
