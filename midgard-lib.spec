@@ -9,9 +9,17 @@ Group:		Networking/Daemons
 Source0:	http://www.midgard-project.org/attachment/434f392e6f87e1e76202f00695dd251f/14f7a3c18ba99abeb844ff1dd73580d4/%{name}-%{version}.tar.bz2
 # Source0-md5:	ac54f0fd505d33368e80968c3828c546
 Patch0:		%{name}-id.patch
-Patch1:		%{name}-mkinstalldirs.patch
 URL:		http://www.midgard-project.org/
-Requires:	mysql >= 3.23.20, mysql-libs >= 3.23.20, expat >= 1.95.1
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	expat-devel >= 1.95.1
+BuildRequires:	glib-devel >= 1.2
+BuildRequires:	libtool
+BuildRequires:	mysql-devel >= 3.23.20
+BuildRequires:	zlib-devel
+Requires:	expat >= 1.95.1
+Requires:	mysql >= 3.23.20
+Requires:	mysql-libs >= 3.23.20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/repligard
@@ -32,7 +40,7 @@ na dynamicznej bazie danych.
 
 %package devel
 Summary:	Header files etc to develop midgard-lib applications
-Summary(pl):	Pliki naglowkowe i inne do midgard-lib
+Summary(pl):	Pliki nag³ówkowe i inne do tworzenia aplikacji z u¿yciem midgard-lib
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
 
@@ -40,29 +48,41 @@ Requires:	%{name} = %{version}
 Header files etc to develop midgard-lib applications.
 
 %description devel -l pl
-Pliki naglowkowe i inne do midgard-lib.
+Pliki nag³ówkowe i inne do tworzenia aplikacji z u¿yciem midgard-lib.
+
+%package static
+Summary:	Static version of midgard library
+Summary(pl):	Statyczna wersja biblioteki midgard
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}
+
+%description static
+Static version of midgard library.
+
+%description static -l pl
+Statyczna wersja biblioteki midgard.
 
 %prep
-%setup -q -n %{name}-%{_ver}
-#%patch0 -p1
-#%patch1 -p1
+%setup -q
+%patch0 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure \
 	--with-mysql=/usr \
 	--with-sitegroups \
 	--with-iconv \
-	--with-repligard-owner
+	--with-repligard-owner=mysql
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_includedir}/midgard,%{_libdir},%{_datadir}/midgard,%{_bindir}}
-install midgard/*.h $RPM_BUILD_ROOT%{_includedir}/midgard
-install src/.libs/* $RPM_BUILD_ROOT%{_libdir}
-install repligard/repligard.conf $RPM_BUILD_ROOT%{_sysconfdir}
-install repligard/repligard $RPM_BUILD_ROOT%{_bindir}
-install repligard/repligard.xml $RPM_BUILD_ROOT%{_datadir}/midgard
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -72,15 +92,20 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING ChangeLog INSTALL INSTALL.ru NEWS README README.ru
+%doc AUTHORS ChangeLog NEWS README
+%lang(ru) %doc README.ru
 %attr(755,root,root) %{_bindir}/repligard
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/repligard.conf
-%{_datadir}/midgard/repligard.xml
+%{_datadir}/midgard
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/midgard-config
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
+%{_includedir}/midgard
+
+%files static
+%defattr(644,root,root,755)
 %{_libdir}/lib*.a
-%{_includedir}/*
