@@ -7,6 +7,7 @@ License:	distributable
 Vendor:		Midgard Project <http://www.midgard-project.org>
 Group:		Networking/Daemons
 Source0:	http://www.midgard-project.org/attachment/434f392e6f87e1e76202f00695dd251f/14f7a3c18ba99abeb844ff1dd73580d4/%{name}-%{version}.tar.bz2
+# Source0-md5:	ac54f0fd505d33368e80968c3828c546
 Patch0:		%{name}-id.patch
 Patch1:		%{name}-mkinstalldirs.patch
 URL:		http://www.midgard-project.org/
