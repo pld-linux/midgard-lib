@@ -72,16 +72,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc AUTHORS COPYING ChangeLog INSTALL INSTALL.ru NEWS README README.ru
 %attr(755,root,root) %{_bindir}/repligard
+%config(noreplace) %{_sysconfdir}/repligard.conf
 %{_datadir}/midgard/repligard.xml
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%config(noreplace) %{_sysconfdir}/repligard.conf
-%doc AUTHORS COPYING ChangeLog INSTALL INSTALL.ru NEWS README README.ru
 
 %files devel
-%defattr(644,root,root,755)
-%{_includedir}/*
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_libdir}/lib*.a
+%{_includedir}/*
