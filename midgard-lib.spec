@@ -3,17 +3,16 @@ Summary(pl):	Biblioteka Midgard
 Name:		midgard-lib
 Version:	1.4.1_5
 Release:	0.1
-URL:		http://www.midgard-project.org/
+License:	distributable
 Vendor:		Midgard Project <http://www.midgard-project.org>
-Source0:	%{name}-%{version}.tar.bz2
-Patch0:		%{name}-id.patch
-Patch1:		%{name}-mkinstalldirs.patch
-Copyright:	distributable
 Group:		Networking/Daemons
 Group(de):	Netzwerkwesen/Server
 Group(pl):	Sieciowe/Serwery
+Source0:	http://www.midgard-project.org/attachment/434f392e6f87e1e76202f00695dd251f/c80efd696ab096ca7ab8f4b839759285/%{name}-%{version}.tar.bz2
+Patch0:		%{name}-id.patch
+Patch1:		%{name}-mkinstalldirs.patch
+URL:		http://www.midgard-project.org/
 Requires:	mysql >= 3.23.20, mysql-libs >= 3.23.20, expat >= 1.95.1
-Provides:	%{name}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/repligard
@@ -25,6 +24,12 @@ an Open Source development project, giving you the freedom to create
 your solutions in an open environment. Midgard is the tool for
 creating, modifying and maintaining dynamic database-enabled web
 services.
+
+%description -l pl
+Midgard jest wolnodostêpn± platform± do tworzenia i publikowania
+aplikacji webowych, bazuj±c± na jêzyku skryptowym PHP. Midgard jest
+narzêdziem do tworzenia, modyfikacji i prowadzenia serwisów opartych
+na dynamicznej bazie danych.
 
 %package devel
 Summary:	Header files etc to develop midgard-lib applications
@@ -66,6 +71,9 @@ rm -rf $RPM_BUILD_ROOT
 
 gzip -9nf AUTHORS COPYING ChangeLog INSTALL INSTALL.ru NEWS README README.ru
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
  
@@ -74,7 +82,6 @@ gzip -9nf AUTHORS COPYING ChangeLog INSTALL INSTALL.ru NEWS README README.ru
 %attr(755,root,root) %{_bindir}/repligard
 %{_datadir}/midgard/repligard.xml
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-#%{_includedir}/midgard/*
 %config(noreplace) %{_sysconfdir}/repligard.conf
 %doc *.gz
 
@@ -85,6 +92,3 @@ gzip -9nf AUTHORS COPYING ChangeLog INSTALL INSTALL.ru NEWS README README.ru
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
 %{_libdir}/lib*.a
-
-%clean
-rm -rf $RPM_BUILD_ROOT
