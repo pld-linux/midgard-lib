@@ -74,7 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING ChangeLog INSTALL INSTALL.ru NEWS README README.ru
 %attr(755,root,root) %{_bindir}/repligard
-%config(noreplace) %{_sysconfdir}/repligard.conf
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/repligard.conf
 %{_datadir}/midgard/repligard.xml
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
