@@ -34,7 +34,7 @@ services.
 
 %description -l pl
 Midgard jest wolnodostêpn± platform± do tworzenia i publikowania
-aplikacji webowych, bazuj±c± na jêzyku skryptowym PHP. Midgard jest
+aplikacji WWW, bazuj±c± na jêzyku skryptowym PHP. Midgard jest
 narzêdziem do tworzenia, modyfikacji i prowadzenia serwisów opartych
 na dynamicznej bazie danych.
 
