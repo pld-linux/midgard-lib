@@ -1,7 +1,8 @@
+%define		_ver	1.4.1
 Summary:	Midgard Library
 Summary(pl):	Biblioteka Midgard
 Name:		midgard-lib
-Version:	1.4.1_5
+Version:	%{_ver}_5
 Release:	0.1
 License:	distributable
 Vendor:		Midgard Project <http://www.midgard-project.org>
@@ -42,7 +43,7 @@ Header files etc to develop midgard-lib applications.
 Pliki naglowkowe i inne do midgard-lib.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q -n %{name}-%{_ver}
 
 %patch0 -p1
 %patch1 -p1
