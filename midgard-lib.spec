@@ -5,12 +5,13 @@ Version:	1.4.1_5
 Release:	0.1
 URL:		http://www.midgard-project.org/
 Vendor:		Midgard Project <http://www.midgard-project.org>
-Source:		%{name}-%{version}.tar.bz2
+Source0:	%{name}-%{version}.tar.bz2
 Patch0:		%{name}-id.patch
 Patch1:		%{name}-mkinstalldirs.patch
 Copyright:	distributable
 Group:		Networking/Daemons
-Group(pl):      Sieciowe/Serwery
+Group(de):	Netzwerkwesen/Server
+Group(pl):	Sieciowe/Serwery
 Requires:	mysql >= 3.23.20, mysql-libs >= 3.23.20, expat >= 1.95.1
 Provides:	%{name}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -26,12 +27,13 @@ creating, modifying and maintaining dynamic database-enabled web
 services.
 
 %package devel
-Summary:        Header files etc to develop midgard-lib applications
-Summary(pl):    Pliki naglowkowe i inne do midgard-lib
-Group:          Development/Libraries
-Group(de):      Entwicklung/Libraries
-Group(pl):      Programowanie/Biblioteki
-Requires:       %{name} = %{version}
+Summary:	Header files etc to develop midgard-lib applications
+Summary(pl):	Pliki naglowkowe i inne do midgard-lib
+Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
+Group(fr):	Development/Librairies
+Group(pl):	Programowanie/Biblioteki
+Requires:	%{name} = %{version}
 
 %description devel
 Header files etc to develop midgard-lib applications.
@@ -40,7 +42,7 @@ Header files etc to develop midgard-lib applications.
 Pliki naglowkowe i inne do midgard-lib.
 
 %prep
-%setup -n %{name}-%{version}
+%setup -q -n %{name}-%{version}
 
 %patch0 -p1
 %patch1 -p1
@@ -54,12 +56,13 @@ Pliki naglowkowe i inne do midgard-lib.
 %{__make}
 
 %install
-%{__install} -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_includedir}/midgard,%{_libdir},/usr/share/midgard,%{_bindir}}
+rm -rf $RPM_BUILD_ROOT
+%{__install} -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_includedir}/midgard,%{_libdir},%{_datadir}/midgard,%{_bindir}}
 %{__install} midgard/*.h $RPM_BUILD_ROOT/%{_includedir}/midgard
 %{__install} src/.libs/* $RPM_BUILD_ROOT/%{_libdir}
 %{__install} repligard/repligard.conf $RPM_BUILD_ROOT/%{_sysconfdir}
 %{__install} repligard/repligard $RPM_BUILD_ROOT/%{_bindir}
-%{__install} repligard/repligard.xml $RPM_BUILD_ROOT/usr/share/midgard
+%{__install} repligard/repligard.xml $RPM_BUILD_ROOT%{_datadir}/midgard
 
 gzip -9nf AUTHORS COPYING ChangeLog INSTALL INSTALL.ru NEWS README README.ru
 
@@ -69,7 +72,7 @@ gzip -9nf AUTHORS COPYING ChangeLog INSTALL INSTALL.ru NEWS README README.ru
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/repligard
-/usr/share/midgard/repligard.xml
+%{_datadir}/midgard/repligard.xml
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 #%{_includedir}/midgard/*
 %config(noreplace) %{_sysconfdir}/repligard.conf
@@ -82,3 +85,6 @@ gzip -9nf AUTHORS COPYING ChangeLog INSTALL INSTALL.ru NEWS README README.ru
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
 %{_libdir}/lib*.a
+
+%clean
+rm -rf $RPM_BUILD_ROOT
