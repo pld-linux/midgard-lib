@@ -6,8 +6,6 @@ Release:	0.1
 License:	distributable
 Vendor:		Midgard Project <http://www.midgard-project.org>
 Group:		Networking/Daemons
-Group(de):	Netzwerkwesen/Server
-Group(pl):	Sieciowe/Serwery
 Source0:	http://www.midgard-project.org/attachment/434f392e6f87e1e76202f00695dd251f/c80efd696ab096ca7ab8f4b839759285/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-id.patch
 Patch1:		%{name}-mkinstalldirs.patch
@@ -35,13 +33,6 @@ na dynamicznej bazie danych.
 Summary:	Header files etc to develop midgard-lib applications
 Summary(pl):	Pliki naglowkowe i inne do midgard-lib
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
