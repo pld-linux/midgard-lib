@@ -1,13 +1,12 @@
-%define		_ver	1.4.1
 Summary:	Midgard Library
 Summary(pl):	Biblioteka Midgard
 Name:		midgard-lib
-Version:	%{_ver}_5
+Version:	1.4.4
 Release:	0.1
 License:	distributable
 Vendor:		Midgard Project <http://www.midgard-project.org>
 Group:		Networking/Daemons
-Source0:	http://www.midgard-project.org/attachment/434f392e6f87e1e76202f00695dd251f/c80efd696ab096ca7ab8f4b839759285/%{name}-%{version}.tar.bz2
+Source0:	http://www.midgard-project.org/attachment/434f392e6f87e1e76202f00695dd251f/14f7a3c18ba99abeb844ff1dd73580d4/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-id.patch
 Patch1:		%{name}-mkinstalldirs.patch
 URL:		http://www.midgard-project.org/
@@ -45,8 +44,8 @@ Pliki naglowkowe i inne do midgard-lib.
 %prep
 %setup -q -n %{name}-%{_ver}
 
-%patch0 -p1
-%patch1 -p1
+#%patch0 -p1
+#%patch1 -p1
 
 %build
 %configure \
