@@ -38,7 +38,7 @@ Requires:	%{name} = %{version}
 %description devel
 Header files etc to develop midgard-lib applications.
 
-%description -l pl devel
+%description devel -l pl
 Pliki naglowkowe i inne do midgard-lib.
 
 %prep
@@ -71,7 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
- 
+
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/repligard
