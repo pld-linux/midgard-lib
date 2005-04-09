@@ -95,7 +95,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %lang(ru) %doc README.ru
 %attr(755,root,root) %{_bindir}/repligard
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/repligard.conf
+%dir %{_sysconfdir}
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/repligard.conf
 %{_datadir}/midgard
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
