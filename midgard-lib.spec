@@ -18,7 +18,6 @@ BuildRequires:	libtool
 BuildRequires:	mysql-devel >= 3.23.20
 BuildRequires:	zlib-devel
 Requires:	expat >= 1.95.1
-Requires:	mysql >= 3.23.20
 Requires:	mysql-libs >= 3.23.20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
