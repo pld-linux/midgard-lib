@@ -4,7 +4,6 @@ Name:		midgard-lib
 Version:	1.4.4
 Release:	0.1
 License:	distributable
-Vendor:		Midgard Project <http://www.midgard-project.org>
 Group:		Networking/Daemons
 Source0:	http://www.midgard-project.org/attachment/434f392e6f87e1e76202f00695dd251f/14f7a3c18ba99abeb844ff1dd73580d4/%{name}-%{version}.tar.bz2
 # Source0-md5:	ac54f0fd505d33368e80968c3828c546
@@ -41,7 +40,7 @@ na dynamicznej bazie danych.
 Summary:	Header files etc to develop midgard-lib applications
 Summary(pl):	Pliki nag³ówkowe i inne do tworzenia aplikacji z u¿yciem midgard-lib
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files etc to develop midgard-lib applications.
@@ -53,7 +52,7 @@ Pliki nag³ówkowe i inne do tworzenia aplikacji z u¿yciem midgard-lib.
 Summary:	Static version of midgard library
 Summary(pl):	Statyczna wersja biblioteki midgard
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static version of midgard library.
