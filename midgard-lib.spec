@@ -1,5 +1,5 @@
 Summary:	Midgard Library
-Summary(pl):	Biblioteka Midgard
+Summary(pl.UTF-8):   Biblioteka Midgard
 Name:		midgard-lib
 Version:	1.4.4
 Release:	0.1
@@ -30,34 +30,34 @@ your solutions in an open environment. Midgard is the tool for
 creating, modifying and maintaining dynamic database-enabled web
 services.
 
-%description -l pl
-Midgard jest wolnodostêpn± platform± do tworzenia i publikowania
-aplikacji WWW, bazuj±c± na jêzyku skryptowym PHP. Midgard jest
-narzêdziem do tworzenia, modyfikacji i prowadzenia serwisów opartych
+%description -l pl.UTF-8
+Midgard jest wolnodostÄ™pnÄ… platformÄ… do tworzenia i publikowania
+aplikacji WWW, bazujÄ…cÄ… na jÄ™zyku skryptowym PHP. Midgard jest
+narzÄ™dziem do tworzenia, modyfikacji i prowadzenia serwisÃ³w opartych
 na dynamicznej bazie danych.
 
 %package devel
 Summary:	Header files etc to develop midgard-lib applications
-Summary(pl):	Pliki nag³ówkowe i inne do tworzenia aplikacji z u¿yciem midgard-lib
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe i inne do tworzenia aplikacji z uÅ¼yciem midgard-lib
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files etc to develop midgard-lib applications.
 
-%description devel -l pl
-Pliki nag³ówkowe i inne do tworzenia aplikacji z u¿yciem midgard-lib.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe i inne do tworzenia aplikacji z uÅ¼yciem midgard-lib.
 
 %package static
 Summary:	Static version of midgard library
-Summary(pl):	Statyczna wersja biblioteki midgard
+Summary(pl.UTF-8):   Statyczna wersja biblioteki midgard
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static version of midgard library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna wersja biblioteki midgard.
 
 %prep
