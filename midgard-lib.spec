@@ -1,5 +1,5 @@
 Summary:	Midgard Library
-Summary(pl.UTF-8):   Biblioteka Midgard
+Summary(pl.UTF-8):	Biblioteka Midgard
 Name:		midgard-lib
 Version:	1.4.4
 Release:	0.1
@@ -38,7 +38,7 @@ na dynamicznej bazie danych.
 
 %package devel
 Summary:	Header files etc to develop midgard-lib applications
-Summary(pl.UTF-8):   Pliki nagłówkowe i inne do tworzenia aplikacji z użyciem midgard-lib
+Summary(pl.UTF-8):	Pliki nagłówkowe i inne do tworzenia aplikacji z użyciem midgard-lib
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -50,7 +50,7 @@ Pliki nagłówkowe i inne do tworzenia aplikacji z użyciem midgard-lib.
 
 %package static
 Summary:	Static version of midgard library
-Summary(pl.UTF-8):   Statyczna wersja biblioteki midgard
+Summary(pl.UTF-8):	Statyczna wersja biblioteki midgard
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
